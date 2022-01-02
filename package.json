@@ -1,0 +1,31 @@
+{
+  "name": "pro-learner-api",
+  "version": "1.1.0",
+  "description": "Node.JS Express API for Pro Learner React Application",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "Express",
+    "API",
+    "Backend",
+    "Node.JS",
+    "MERN",
+    "MongoDB",
+    "SQL"
+  ],
+  "author": "Shah Newaj Shishir",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "mongoose": "^6.1.4",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
