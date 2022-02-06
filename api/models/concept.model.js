@@ -14,6 +14,12 @@ const ConceptSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  problems: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: "Problem",
+    },
+  ],
   createdAt: {
     type: Date,
     default: Date.now(),

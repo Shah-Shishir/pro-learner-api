@@ -24,7 +24,7 @@ const findAll = async (req, res, next) => {
         }
       });
   } catch (error) {
-    return res.status(500).json({ error: err });
+    return res.status(500).json({ error });
   }
 };
 
@@ -66,11 +66,9 @@ const findOne = async (req, res, next) => {
 
   try {
     await Concept.findById(conceptId)
-      .select("_id languageId title content createdAt")
+      .select("_id languageId title content problems createdAt")
       .exec()
       .then((concept) => {
-        res.json({ concept });
-
         if (concept) {
           res.status(200).json({
             concept,
@@ -82,16 +80,16 @@ const findOne = async (req, res, next) => {
         }
       });
   } catch (error) {
-    return res.status(500).json({ error: err });
+    return res.status(500).json({ error });
   }
 };
 
 const update = async (req, res, next) => {
-  const updatedData = req.body;
+  const dataToUpdate = req.body;
   const { conceptId } = req.params;
 
   try {
-    await Concept.findByIdAndUpdate(conceptId, updatedData);
+    await Concept.findByIdAndUpdate(conceptId, dataToUpdate);
 
     res.status(200).json({
       message: "Concept updated successfully!",

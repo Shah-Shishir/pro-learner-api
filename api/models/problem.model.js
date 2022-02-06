@@ -1,20 +1,23 @@
 const mongoose = require("mongoose");
 
-const LanguageSchema = mongoose.Schema({
+const ProblemSchema = mongoose.Schema({
   _id: mongoose.Types.ObjectId,
+  conceptId: {
+    type: String,
+    ref: "Concept",
+  },
   title: {
     type: String,
-    unique: true,
     required: true,
   },
   description: {
     type: String,
     required: true,
   },
-  concepts: [
+  solutions: [
     {
       type: mongoose.Types.ObjectId,
-      ref: "Concept",
+      ref: "Solution",
     },
   ],
   createdAt: {
@@ -23,4 +26,4 @@ const LanguageSchema = mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Language", LanguageSchema);
+module.exports = mongoose.model("Problem", ProblemSchema);

@@ -33,8 +33,6 @@ const create = async (req, res, next) => {
 };
 
 const findOne = async (req, res, next) => {
-  res.json({ data: "aaa" });
-
   const { languageId } = req.params;
 
   try {
@@ -58,11 +56,11 @@ const findOne = async (req, res, next) => {
 };
 
 const update = async (req, res, next) => {
-  const updatedData = req.body;
+  const dataToUpdate = req.body;
   const { languageId } = req.params;
 
   try {
-    await Language.findByIdAndUpdate(languageId, updatedData)
+    await Language.findByIdAndUpdate(languageId, dataToUpdate)
       .exec()
       .then(() =>
         res.status(200).json({
